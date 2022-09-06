@@ -1,0 +1,42 @@
+.newsNavigation{
+    display: flex;
+    
+}
+
+.genreNavigation, .countryNavigation ,.pageNumberNavigation{
+    width: 100vw;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    
+    background-color: black;
+    border-top: 1px solid white;
+    border-right: 2px dotted white;
+}
+
+.genreNavigation h5 , .countryNavigation h5, .pageNumberNavigation h5{
+    color: white;
+    font-weight: 100;
+}
+
+.genreNavigation ul , .countryNavigation ul , .pageNumberNavigation ul{
+    display: flex;
+    list-style: none;
+    
+}
+
+.genreNavigation button, .countryNavigation button, .pageNumberNavigation button{
+    color: white;
+    background-color: black;
+    border-right: 1px solid white;
+    font-weight: 100;
+    cursor:pointer;
+}
+
+@media (max-width: 1024px) {
+    .newsNavigation{
+        display:block;   
+    }
+}

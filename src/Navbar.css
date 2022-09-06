@@ -1,0 +1,59 @@
+/* *{
+    overflow: hidden;
+} */
+.navbar {
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top:0;
+    z-index: 1000000;
+    background-color: black;
+    color: aliceblue;
+    height: 6rem;
+    width: 100%;
+
+}
+
+#homelink {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 4.5rem;
+    padding: 10px;
+
+    border-radius: 120px;
+    color: white;
+    background-color: none;
+    text-decoration:none;
+    font-size: 1.5rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbarlist{
+    margin-left: auto;
+    margin-right: 2rem;
+    margin-top: 1.8rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbarli{
+    padding: 1rem;
+    list-style: none;
+}
+
+.navbarlink{
+    text-decoration: none;
+    color: white;
+    font-weight: 100;
+}
+
+.loginButton{
+    color:black;
+    background-color: white;
+    padding: 4px 20px 6px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+
+}
