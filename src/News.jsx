@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import loading from "./loading.gif"
-import NewsItem from './NewsItem'
+import NewsItems from './NewsItems'
 import "./News.css"
 export default class News extends Component {
 
@@ -49,7 +49,7 @@ export default class News extends Component {
       {!this.state.loaded ? <img className='loading' src={loading} alt= "loading"/> : ""}
       <div className="gridContainer">
         <div className='newsItemsGrid'>
-          {this.state.articles? this.state.articles.map( (x) => {return <NewsItem imgUrl= {x["urlToImage"]} 
+          {this.state.articles? this.state.articles.map( (x) => {return <NewsItems imgUrl= {x["urlToImage"]} 
           title= {x["title"]} description= {x["content"]} newsUrl = {x["url"]} author = {x["author"]} publishedAt ={x["publishedAt"]} />} ) : ""}
         </div>
       </div>

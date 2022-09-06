@@ -36,12 +36,12 @@
     padding: 6px;
 }
 
-@media (max-width: 1024px){
+@media (max-width: 1160px){
     .newsItemsGrid{
         grid-template-columns: repeat(2,1fr );
     }
 }
-@media (max-width: 786px){
+@media (max-width: 800px){
     .newsItemsGrid{
         grid-template-columns: repeat(1,1fr );
     }

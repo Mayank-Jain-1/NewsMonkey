@@ -1,6 +1,3 @@
-/* *{
-    overflow: hidden;
-} */
 .navbar {
     white-space: nowrap;
     display: flex;
@@ -9,39 +6,37 @@
     top:0;
     z-index: 1000000;
     background-color: black;
-    color: aliceblue;
+    color: white;
     height: 6rem;
-    width: 100%;
+    width: 100vw;
 
 }
 
 #homelink {
     display: flex;
     align-items: center;
-    margin-top: 1rem;
-    margin-left: 4.5rem;
-    padding: 10px;
-
+    padding: 1rem 1rem 0 4.5rem;
     border-radius: 120px;
     color: white;
-    background-color: none;
     text-decoration:none;
     font-size: 1.5rem;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+
 .navbarlist{
-    margin-left: auto;
-    margin-right: 2rem;
-    margin-top: 1.8rem;
+    padding-top: 0.8rem;
     display: flex;
     flex-direction: row;
 }
+
 
 .navbarli{
     padding: 1rem;
     list-style: none;
 }
+
 
 .navbarlink{
     text-decoration: none;
