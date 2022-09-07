@@ -49,8 +49,8 @@ export default class News extends Component {
       {!this.state.loaded ? <img className='loading' src={loading} alt= "loading"/> : ""}
       <div className="gridContainer">
         <div className='newsItemsGrid'>
-          {this.state.articles? this.state.articles.map( (x) => {return <NewsItems imgUrl= {x["urlToImage"]} 
-          title= {x["title"]} description= {x["content"]} newsUrl = {x["url"]} author = {x["author"]} publishedAt ={x["publishedAt"]} />} ) : ""}
+          {this.state.articles && this.state.articles.map( (x) => {return <NewsItems imgUrl= {x["urlToImage"]} 
+          title= {x["title"]} description= {x["content"]} newsUrl = {x["url"]} author = {x["author"]} publishedAt ={x["publishedAt"]} newsSource = {x["source"]["name"]} />} )}
         </div>
       </div>
 
