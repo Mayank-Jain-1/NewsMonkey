@@ -9,28 +9,28 @@ export default class Home extends Component {
       newsCountry: "in",
       newsGenre: "general",
       pageSize: "15",
-      changes: 0
+      key: this.newsCountry + this.statenewsGenre
     }
   }
   
   handleGenreSelection = async (genre) => {
     this.setState({
       newsGenre: genre,
-       changes: this.state.changes === 0 ? 1 : 0
+      key: this.state.newsCountry + this.state.newsGenre
       })
     }
     
   handleCountrySelection = async (country) => {
       this.setState({
         newsCountry: country,
-        changes: this.state.changes === 0 ? 1 : 0
+        key: this.state.newsCountry + this.state.newsGenre
       })
     }
     
     handlePageNumberSelection = async (size) =>{
       this.setState({
         pageSize: size.toString(),
-        changes: this.state.changes === 0 ? 1 : 0
+        key: this.state.newsCountry + this.state.newsGenre
       })
   }
 
@@ -65,19 +65,8 @@ export default class Home extends Component {
               
             </ul>
         </div>
-
-        <div className="pageNumberNavigation">
-            <h5>News per page: </h5>
-              <ul>
-                <li><button onClick={() =>{ this.handlePageNumberSelection(5) }}  style={{backgroundColor: this.state.pageSize === "5" ? "white" : "black" , color: this.state.pageSize === "5" ? "black" : "white"}}>5</button></li>
-                <li><button onClick={() =>{ this.handlePageNumberSelection(10) }} style={{backgroundColor: this.state.pageSize === "10" ? "white" : "black" , color: this.state.pageSize === "10" ? "black" : "white"}} >10</button></li>
-                <li><button onClick={() =>{ this.handlePageNumberSelection(15) }} style={{backgroundColor: this.state.pageSize === "15" ? "white" : "black" , color: this.state.pageSize === "15" ? "black" : "white"}} >15</button></li>
-                <li><button onClick={() =>{ this.handlePageNumberSelection(20) }} style={{backgroundColor: this.state.pageSize === "20" ? "white" : "black" , color: this.state.pageSize === "20" ? "black" : "white"}} >20</button></li>
-                <li><button onClick={() =>{ this.handlePageNumberSelection(25) }} style={{backgroundColor: this.state.pageSize === "25" ? "white" : "black" , color: this.state.pageSize === "25" ? "black" : "white"}} >25</button></li>
-              </ul>
-        </div>
       </div>
-      <News key={this.state.newsGenre + this.state.newsCountry} newsGenre = {this.state.newsGenre} pageSize= {this.state.pageSize} newsCountry={this.state.newsCountry} />
+      <News key={this.state.key} newsGenre = {this.state.newsGenre} pageSize= {this.state.pageSize} newsCountry={this.state.newsCountry} />
       </>
     )
   }
