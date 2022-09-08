@@ -77,7 +77,7 @@ export default class Home extends Component {
               </ul>
         </div>
       </div>
-      <News key={this.state.changes} newsGenre = {this.state.newsGenre} pageSize= {this.state.pageSize} newsCountry={this.state.newsCountry} />
+      <News key={this.state.newsGenre + this.state.newsCountry} newsGenre = {this.state.newsGenre} pageSize= {this.state.pageSize} newsCountry={this.state.newsCountry} />
       </>
     )
   }
