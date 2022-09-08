@@ -16,11 +16,26 @@
     gap: 3rem;
 }
 
+.headingContainer{
+    display: flex;
+    justify-content: center;
+}
+
 .heading{
-    margin: 2rem;
-    font-size: 3rem ;
+    display: flex;
+    margin: 2rem 2rem 0 2rem;
+    font-size: 3.4rem ;
+    align-items: center;
+    justify-content: center;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 100;
+}
+
+.subheading{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 0;
 }
 
 .newsNavigationContainer{
