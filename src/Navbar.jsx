@@ -23,6 +23,9 @@ export class Navbar extends Component {
           <li className= "navbarli">
 <Link to="/" className="navbarlink loginButton">Join Us</Link>
           </li>
+          <li className='navbarli'>
+            <button className='hamburger'><img className='hamburgerimg' src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-kabob-512.png" alt=""/></button>
+          </li>
         </ul>
         </div>
       </div>

@@ -29,7 +29,6 @@ export default class News extends Component {
   };
 
   async componentDidMount() {
-    console.log("mounted")
     this.updateComponent()
     this.setState({
       pageNumber: 2
