@@ -4,13 +4,26 @@ import { Link } from 'react-router-dom';
 
 export class Navbar extends Component {
   
+  constructor(){
+    this.navbarStyle = {
+      maxHeight: "0px"
+    }
+  }
+  
+  toggleMenu =  () =>{
+    if (this.navbarStyle.maxHeight == "0px"){
+      this.navbarStyle.maxHeight == "130px"
+    }else{
+      this.navbarStyle.maxHeight =="0px";
+    }
+  }
+
   render() {
     return (
       <div className="navbar">
         <Link id = "homelink" to="/">News Monkey</Link>
-        <div>
 
-        <ul className= "navbarlist">
+        <ul id = "navbarlist"className= "navbarlist" style = {navbarStyle}>
           <li className= "navbarli">
             <Link to="/" className="navbarlink">Home</Link> 
           </li>
@@ -23,11 +36,8 @@ export class Navbar extends Component {
           <li className= "navbarli">
 <Link to="/" className="navbarlink loginButton">Join Us</Link>
           </li>
-          <li className='navbarli'>
-            <button className='hamburger'><img className='hamburgerimg' src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-kabob-512.png" alt=""/></button>
-          </li>
         </ul>
-        </div>
+            <button className='hamburger'><img className='hamburgerimg' src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-kabob-512.png" alt="" onClick={toggleMenu}/></button>
       </div>
     )
   }
