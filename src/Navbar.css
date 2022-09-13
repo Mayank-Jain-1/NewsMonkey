@@ -7,16 +7,15 @@
     z-index: 1000000;
     background-color: black;
     color: white;
-    /* height: 6rem; */
     width: 100vw;
-    /* padding: 1rem; */
+    padding-bottom: 0.5rem;
 
 }
 
 #homelink {
     display: flex;
     align-items: center;
-    padding: 1rem 1rem 1rem 4.5rem;
+    padding: 1rem 1rem 0 4.5rem;
     border-radius: 120px;
     color: white;
     text-decoration:none;
@@ -44,12 +43,12 @@
     color: black;
 }
 
-.navbarlist{
+.navbarlist1{
     background-color: black;
     display: flex;
     align-items: center;
     margin:0;
-    /* padding-top: 0.8rem; */
+    padding-top: 0.8rem;
     display: flex;
     flex-direction: row;
 }
@@ -77,28 +76,13 @@
 }
 
 @media(max-width:786px){
-    .navbar{
-        flex-direction: column;
-        /* padding: 1rem; */
-        padding-bottom: 1rem;
+
+    .navbarlist1{
+        display:none;
     }
 
-    .navbarlist{
-        /* display: none; */
-        overflow: hidden;
-        align-items:flex-end;
-        padding-right: 1rem;
-        /* padding-bottom: 1rem; */
-        background-color: black;
-        flex-direction: column;
-        transition: 0.5s
-    }
-    #homelink{
-        padding-top: 2rem;
-        font-size: 2rem;
-    }
     .hamburger{
         display: block;
-        padding-top: 1.8rem;
+        padding-top: 5px;
     }
 }

@@ -8,24 +8,15 @@ export class Navbar extends Component {
     super();
     this.state = {
       navbarStyle: {
-        maxHeight: "0px"
       }
     }
   }
   
   toggleMenu =  () =>{
     if (this.state.navbarStyle.maxHeight == "0px"){
-      this.setState({
-        navbarStyle: {
-          maxHeight: "200px"
-        }
-      })
+
     }else{
-      this.setState({
-        navbarStyle: {
-          maxHeight: "0px"
-        }
-      })
+
     }
   }
 
@@ -34,7 +25,7 @@ export class Navbar extends Component {
       <div className="navbar">
         <Link id = "homelink" to="/">News Monkey</Link>
 
-        <ul id = "navbarlist"className= "navbarlist" style = {this.state.navbarStyle}>
+        <ul id = "navbarlist1"className= "navbarlist1" style = {this.state.navbarStyle}>
           <li className= "navbarli">
             <Link to="/" className="navbarlink">Home</Link> 
           </li>
