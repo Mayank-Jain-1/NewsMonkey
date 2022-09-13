@@ -5,16 +5,27 @@ import { Link } from 'react-router-dom';
 export class Navbar extends Component {
   
   constructor(){
-    this.navbarStyle = {
-      maxHeight: "0px"
+    super();
+    this.state = {
+      navbarStyle: {
+        maxHeight: "0px"
+      }
     }
   }
   
   toggleMenu =  () =>{
-    if (this.navbarStyle.maxHeight == "0px"){
-      this.navbarStyle.maxHeight == "130px"
+    if (this.state.navbarStyle.maxHeight == "0px"){
+      this.setState({
+        navbarStyle: {
+          maxHeight: "200px"
+        }
+      })
     }else{
-      this.navbarStyle.maxHeight =="0px";
+      this.setState({
+        navbarStyle: {
+          maxHeight: "0px"
+        }
+      })
     }
   }
 
@@ -23,7 +34,7 @@ export class Navbar extends Component {
       <div className="navbar">
         <Link id = "homelink" to="/">News Monkey</Link>
 
-        <ul id = "navbarlist"className= "navbarlist" style = {navbarStyle}>
+        <ul id = "navbarlist"className= "navbarlist" style = {this.state.navbarStyle}>
           <li className= "navbarli">
             <Link to="/" className="navbarlink">Home</Link> 
           </li>
@@ -37,7 +48,7 @@ export class Navbar extends Component {
 <Link to="/" className="navbarlink loginButton">Join Us</Link>
           </li>
         </ul>
-            <button className='hamburger'><img className='hamburgerimg' src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-kabob-512.png" alt="" onClick={toggleMenu}/></button>
+            <button className='hamburger'><img className='hamburgerimg' src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-kabob-512.png" alt="" onClick={this.toggleMenu}/></button>
       </div>
     )
   }
