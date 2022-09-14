@@ -11,7 +11,8 @@ import LoadingBar from 'react-top-loading-bar';
 
 export default class App extends Component {
   state = {
-    progress:0
+    progress:0,
+    apiKey: process.env.REACT_APP_NEWS_API_KEY 
   }
 
   setProgress = (progress) => {
@@ -29,8 +30,8 @@ export default class App extends Component {
       />
       <Navbar/>
         <Routes>
-          <Route path='/' element={<Home setProgress= {this.setProgress}/>}/>
-          <Route path='/whatsnew' element={<WhatsNew/>}/>
+            <Route path='/' element={<Home apiKey = {this.state.apiKey} setProgress= {this.setProgress}/>}/>
+            <Route path='/whatsnew' element={<WhatsNew/>}/>
           <Route path='/about' element={<About/>}/>
         </Routes> 
       </BrowserRouter>
