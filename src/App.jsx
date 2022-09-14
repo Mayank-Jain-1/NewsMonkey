@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react'
+import React,  {useState} from 'react'
 import {BrowserRouter,
         Routes,
         Route} from "react-router-dom"
@@ -9,33 +9,26 @@ import About from './About';
 import Home from './Home';
 import LoadingBar from 'react-top-loading-bar';
 
-export default class App extends Component {
-  state = {
-    progress:0,
-    apiKey: process.env.REACT_APP_NEWS_API_KEY 
-  }
 
-  setProgress = (progress) => {
-    this.setState({
-      progress: progress
-    })
-  }
+export const App = () => {
+
+  const [progress, setProgress] = useState(0);
+  const apiKey = process.env.REACT_APP_NEWS_API_KEY;
    
-  render() {
     return (
       <BrowserRouter>
       <LoadingBar 
         color='red'
-        progress={this.state.progress}  
+        progress={progress}  
       />
       <Navbar/>
         <Routes>
-            <Route path='/' element={<Home apiKey = {this.state.apiKey} setProgress= {this.setProgress}/>}/>
+            <Route path='/' element={<Home apiKey = {apiKey} setProgress= {setProgress}/>}/>
             <Route path='/whatsnew' element={<WhatsNew/>}/>
           <Route path='/about' element={<About/>}/>
         </Routes> 
       </BrowserRouter>
     )
-  }
 }
  
+export default App;

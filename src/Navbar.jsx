@@ -1,36 +1,28 @@
 import "./Navbar.css";
-import React, { Component } from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
-export class Navbar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      navbarStyle: {
-        maxHeight: "0px"
-      },
-    };
-  }
+export const Navbar = () => {
 
-  toggleMenu = () => {
-    if (this.state.navbarStyle.maxHeight === "0px") {
-      this.setState({
-        navbarStyle:{
-          transition: "0.5s",
-          maxHeight: "300px"
-        }
+  const [navbarStyle, setNavbarStyle] = useState({maxHeight:"0px"});
+
+  const toggleMenu = () => {
+    if (navbarStyle.maxHeight === "0px") {
+
+      setNavbarStyle({
+        transition: "0.5s",
+        maxHeight: "300px"
       })
+
     } else {
-      this.setState({
-        navbarStyle:{
-          transition: "0.5s",
-          maxHeight: "0px"
-        }
+      setNavbarStyle({
+        transition: "0.5s",
+        maxHeight: "0px"
       })
     }
   };
 
-  render() {
+
     return (
       <div className="navbar">
           <Link id="homelink" to="/">
@@ -67,13 +59,13 @@ export class Navbar extends Component {
             className="hamburgerimg"
             src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-kabob-512.png"
             alt=""
-            onClick={this.toggleMenu}
+            onClick={toggleMenu}
           />
         </button>
         <ul
           id="navbarlist2"
           className="navbarlist2"
-          style={this.state.navbarStyle}
+          style={navbarStyle}
         >
           <li className="navbarli">
             <Link to="/" className="navbarlink">
@@ -96,17 +88,8 @@ export class Navbar extends Component {
             </Link>
           </li>
         </ul>
-        <button className="hamburger">
-          <img
-            className="hamburgerimg"
-            src="https://cdn3.iconfinder.com/data/icons/2px-stroke-simple-line/24/misc-kabob-512.png"
-            alt=""
-            onClick={this.toggleMenu}
-          />
-        </button>
       </div>
     );
-  }
 }
 
 export default Navbar;

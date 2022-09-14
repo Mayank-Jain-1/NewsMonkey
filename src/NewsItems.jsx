@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import "./NewsItems.css"
 
-export default class NewsItem extends Component {
-  
-  
-  render() {
-    let {title, description, imgUrl, newsUrl, author, publishedAt, newsSource} = this.props;
-    publishedAt = new Date(publishedAt).toGMTString();
+const NewsItems = (props) =>  {
+
+  let {title, description, imgUrl, newsUrl, author, publishedAt, newsSource} = props;
+  publishedAt = new Date(publishedAt).toGMTString();
 
     return (
       <div className='newsContainer'>
@@ -17,5 +15,7 @@ export default class NewsItem extends Component {
         <a className='learnMore' href={newsUrl}>Learn More</a>
       </div>
     )
-  }
 }
+
+
+export default NewsItems;

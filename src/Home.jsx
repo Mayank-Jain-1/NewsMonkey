@@ -1,73 +1,60 @@
-import React, { Component } from 'react'
+import React, {useState} from 'react'
 import News from './News'
 import "./Home.css"
 
-export default class Home extends Component {
-  constructor(){
-    super();
-    this.state = {
-      newsCountry: "in",
-      newsGenre: "general",
-      pageSize: "15",
-      key: this.newsCountry + this.statenewsGenre
-    }
-  }
+export const Home = (props) => {
   
-  handleGenreSelection = async (genre) => {
-    this.setState({
-      newsGenre: genre,
-      key: this.state.newsCountry + this.state.newsGenre
-      })
+
+  const [newsCountry, setNewsCountry] = useState("in");
+  const [newsGenre, setNewsGenre] = useState("general");
+  const [key, setKey] = useState(newsCountry + newsGenre);
+  
+  const handleGenreSelection = async (genre) => {
+    setNewsGenre(genre);
+    setKey(newsCountry + newsGenre);
     }
     
-  handleCountrySelection = async (country) => {
-      this.setState({
-        newsCountry: country,
-        key: this.state.newsCountry + this.state.newsGenre
-      })
+  const handleCountrySelection = async (country) => {
+    setNewsCountry(country);
+    setKey(newsCountry + newsGenre);
     }
-    
-    handlePageNumberSelection = async (size) =>{
-      this.setState({
-        pageSize: size.toString(),
-        key: this.state.newsCountry + this.state.newsGenre
-      })
-  }
+
 
 
   
-  render() {
     return (
       <>
       <div className="newsNavigation">
         <div className="genreNavigation">
           <h5>News Category: </h5>
             <ul>
-              <li><button onClick={() =>{ this.handleGenreSelection("general") }} style={{backgroundColor: this.state.newsGenre === "general" ? "white" : "black" , color: this.state.newsGenre === "general" ? "black" : "white"}}>General</button></li>
-              <li><button onClick={() =>{ this.handleGenreSelection("business") }} style={{backgroundColor: this.state.newsGenre === "business" ? "white" : "black" , color: this.state.newsGenre === "business" ? "black" : "white"}}>Business</button></li>
-              <li><button onClick={() =>{ this.handleGenreSelection("entertainment") }} style={{backgroundColor: this.state.newsGenre === "entertainment" ? "white" : "black" , color: this.state.newsGenre === "entertainment" ? "black" : "white"}}>Entertainment</button></li>
-              <li><button onClick={() =>{ this.handleGenreSelection("health") }} style={{backgroundColor: this.state.newsGenre === "health" ? "white" : "black" , color: this.state.newsGenre === "health" ? "black" : "white"}}>Health</button></li>
-              <li><button onClick={() =>{ this.handleGenreSelection("sports") }} style={{backgroundColor: this.state.newsGenre === "sports" ? "white" : "black" , color: this.state.newsGenre === "sports" ? "black" : "white"}}>Sports</button></li>
-              <li><button onClick={() =>{ this.handleGenreSelection("science") }} style={{backgroundColor: this.state.newsGenre === "science" ? "white" : "black" , color: this.state.newsGenre === "science" ? "black" : "white"}}>Science</button></li>
-              <li><button onClick={() =>{ this.handleGenreSelection("technology") }} style={{backgroundColor: this.state.newsGenre === "technology" ? "white" : "black" , color: this.state.newsGenre === "technology" ? "black" : "white"}}>Technology</button></li>
+              <li><button onClick={() =>{ handleGenreSelection("general") }} style={{backgroundColor: newsGenre === "general" ? "white" : "black" , color: newsGenre === "general" ? "black" : "white"}}>General</button></li>
+              <li><button onClick={() =>{ handleGenreSelection("business") }} style={{backgroundColor: newsGenre === "business" ? "white" : "black" , color: newsGenre === "business" ? "black" : "white"}}>Business</button></li>
+              <li><button onClick={() =>{ handleGenreSelection("entertainment") }} style={{backgroundColor: newsGenre === "entertainment" ? "white" : "black" , color: newsGenre === "entertainment" ? "black" : "white"}}>Entertainment</button></li>
+              <li><button onClick={() =>{ handleGenreSelection("health") }} style={{backgroundColor: newsGenre === "health" ? "white" : "black" , color: newsGenre === "health" ? "black" : "white"}}>Health</button></li>
+              <li><button onClick={() =>{ handleGenreSelection("sports") }} style={{backgroundColor: newsGenre === "sports" ? "white" : "black" , color: newsGenre === "sports" ? "black" : "white"}}>Sports</button></li>
+              <li><button onClick={() =>{ handleGenreSelection("science") }} style={{backgroundColor: newsGenre === "science" ? "white" : "black" , color: newsGenre === "science" ? "black" : "white"}}>Science</button></li>
+              <li><button onClick={() =>{ handleGenreSelection("technology") }} style={{backgroundColor: newsGenre === "technology" ? "white" : "black" , color: newsGenre === "technology" ? "black" : "white"}}>Technology</button></li>
             </ul>
         </div>
 
         <div className='countryNavigation'>
             <h5>Country: </h5>
             <ul>
-              <li><button onClick={() =>{ this.handleCountrySelection("in") }} style={{backgroundColor: this.state.newsCountry === "in" ? "white" : "black" , color: this.state.newsCountry === "in" ? "black" : "white"}}>India</button></li>
-              <li><button onClick={() =>{ this.handleCountrySelection("ca") }}  style={{backgroundColor: this.state.newsCountry === "ca" ? "white" : "black" , color: this.state.newsCountry === "ca" ? "black" : "white"}}>Canada</button></li>
-              <li><button onClick={() =>{ this.handleCountrySelection("cn") }}  style={{backgroundColor: this.state.newsCountry === "cn" ? "white" : "black" , color: this.state.newsCountry === "cn" ? "black" : "white"}}>China</button></li>
-              <li><button onClick={() =>{ this.handleCountrySelection("de") }}  style={{backgroundColor: this.state.newsCountry === "de" ? "white" : "black" , color: this.state.newsCountry === "de" ? "black" : "white"}}>Germany</button></li>
-              <li><button onClick={() =>{ this.handleCountrySelection("gb") }}  style={{backgroundColor: this.state.newsCountry === "gb" ? "white" : "black" , color: this.state.newsCountry === "gb" ? "black" : "white"}}>UK</button></li>
-              <li><button onClick={() =>{ this.handleCountrySelection("us") }}  style={{backgroundColor: this.state.newsCountry === "us" ? "white" : "black" , color: this.state.newsCountry === "us" ? "black" : "white"}}>USA</button></li>
+              <li><button onClick={() =>{ handleCountrySelection("in") }} style={{backgroundColor: newsCountry === "in" ? "white" : "black" , color: newsCountry === "in" ? "black" : "white"}}>India</button></li>
+              <li><button onClick={() =>{ handleCountrySelection("ca") }}  style={{backgroundColor: newsCountry === "ca" ? "white" : "black" , color: newsCountry === "ca" ? "black" : "white"}}>Canada</button></li>
+              <li><button onClick={() =>{ handleCountrySelection("cn") }}  style={{backgroundColor: newsCountry === "cn" ? "white" : "black" , color: newsCountry === "cn" ? "black" : "white"}}>China</button></li>
+              <li><button onClick={() =>{ handleCountrySelection("de") }}  style={{backgroundColor: newsCountry === "de" ? "white" : "black" , color: newsCountry === "de" ? "black" : "white"}}>Germany</button></li>
+              <li><button onClick={() =>{ handleCountrySelection("gb") }}  style={{backgroundColor: newsCountry === "gb" ? "white" : "black" , color: newsCountry === "gb" ? "black" : "white"}}>UK</button></li>
+              <li><button onClick={() =>{ handleCountrySelection("us") }}  style={{backgroundColor: newsCountry === "us" ? "white" : "black" , color: newsCountry === "us" ? "black" : "white"}}>USA</button></li>
               
             </ul>
         </div>
       </div>
-      <News apiKey = {this.props.apiKey} setProgress = {this.props.setProgress} key={this.state.key} newsGenre = {this.state.newsGenre} pageSize= {this.state.pageSize} newsCountry={this.state.newsCountry} />
+      <News apiKey = {props.apiKey} setProgress = {props.setProgress} key={key} newsGenre = {newsGenre} pageSize= {"15"} newsCountry={newsCountry} />
       </>
     )
-  }
 }
+
+
+export default Home;

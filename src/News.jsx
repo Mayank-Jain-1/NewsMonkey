@@ -1,67 +1,51 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import loading from "./loading.gif";
 import NewsItems from "./NewsItems";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "./News.css";
 
 
-export default class News extends Component {
-  constructor() {
-    super();
-    this.state = {
-      articles: [],
-      pageNumber: 1,
-      totalResults: 0,
-    };
-  }
+const News = (props) => {
 
-  updateComponent = async () => {
-    this.props.setProgress(10);
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.newsCountry}&category=${this.props.newsGenre}&apiKey=${this.props.apiKey}&page=${this.state.pageNumber}&pagesize=${this.props.pageSize}`;
+  const [articles, setArticles] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [totalResults, settotalResults] = useState(0);
+
+  const updateComponent = async () => {
+    props.setProgress(10);
+    const url = `https://newsapi.org/v2/top-headlines?country=${props.newsCountry}&category=${props.newsGenre}&apiKey=${props.apiKey}&page=${pageNumber}&pagesize=${props.pageSize}`;
     console.log(url);
     let data = await fetch(url);
     let parsedData = await data.json();
-    this.setState({
-      articles: parsedData.articles,
-      loaded: true,
-      totalResults: parsedData.totalResults,
-    });
-    this.props.setProgress(100);
-
+    setArticles(parsedData.articles);
+    settotalResults(parsedData.totalResults);
+    props.setProgress(100);
   };
 
-  async componentDidMount() {
-    this.updateComponent()
-    this.setState({
-      pageNumber: 2
-    })
-  }
+  useEffect(() => {
+    updateComponent();
+    setPageNumber(2);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  fetchMoreData = async () => {
-    this.setState({
-      pageNumber: this.state.pageNumber +1,
-      loaded: false
-    });
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.newsCountry}&category=${this.props.newsGenre}&apiKey=${this.props.apiKey}&page=${this.state.pageNumber}&pagesize=${this.props.pageSize}`;
+  const fetchMoreData = async () => {
+    setPageNumber(pageNumber + 1);
+    const url = `https://newsapi.org/v2/top-headlines?country=${props.newsCountry}&category=${props.newsGenre}&apiKey=${props.apiKey}&page=${pageNumber}&pagesize=${props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
-    this.setState({
-      loaded: true,
-      articles: this.state.articles.concat(parsedData.articles),
-      totalResults: parsedData.totalResults,
-    });
+    setArticles(articles.concat(parsedData.articles));
+    settotalResults(parsedData.totalResults);
   };
   
   
 
-  render() {
     return (
       <>
         <h1 className="heading">#Welcome to our daily NewsFeed</h1>
         <h2 className="subheading">
           - Top{" "}
-          {this.props.newsGenre.toUpperCase().slice(0, 1) +
-            this.props.newsGenre.slice(1)}{" "}
+          {props.newsGenre.toUpperCase().slice(0, 1) +
+            props.newsGenre.slice(1)}{" "}
           News Headlines
         </h2>
         <hr />
@@ -69,9 +53,9 @@ export default class News extends Component {
         <br />
         <div className="gridContainer">
           <InfiniteScroll
-            dataLength={this.state.articles.length}
-            next={this.fetchMoreData}
-            hasMore={this.state.articles.length !== this.state.totalResults}
+            dataLength={articles.length}
+            next={fetchMoreData}
+            hasMore={articles.length !== totalResults}
             loader={<div className="loaderDiv"><img className="fetchLoading" src={loading} alt="loading" /></div>}
             endMessage={
               <p style={{ textAlign: "center" }}>
@@ -80,7 +64,7 @@ export default class News extends Component {
             }
           >
             <div className="newsItemsGrid">
-              {this.state.articles.map((x) => {
+              {articles.map((x) => {
                   return (
                     <NewsItems
                       imgUrl={x["urlToImage"]}
@@ -98,5 +82,6 @@ export default class News extends Component {
         </div>
       </>
     );
-  }
 }
+
+export default News;

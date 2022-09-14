@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class WhatsNew extends Component {
+const WhatsNew = () => {
     
-  render() {
     return (
       <>
       <div>WhatsNew</div>
@@ -10,4 +9,5 @@ export default class WhatsNew extends Component {
       </>
     )
   }
-}
+
+export default WhatsNew;
