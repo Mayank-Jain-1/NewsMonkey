@@ -11,6 +11,9 @@
     padding-bottom: 0.5rem;
 
 }
+.navbarLarge{
+    display: flex;
+}
 
 #homelink {
     display: flex;
@@ -53,6 +56,10 @@
     flex-direction: row;
 }
 
+.navbarlist2{
+    display: none;
+}
+
 
 .navbarli{
     padding: 1rem;
@@ -77,8 +84,26 @@
 
 @media(max-width:786px){
 
+    .navbar{
+        flex-direction: column;
+        padding-top: 10px;
+    }
     .navbarlist1{
         display:none;
+    }
+    .navbarlist2{
+        margin:0;
+        padding:0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        /* height: 0px; */
+        overflow: hidden;
+    }
+    
+    #homelink{
+        padding-bottom: 20px;
+        padding-left: 2rem;
     }
 
     .hamburger{

@@ -16,7 +16,7 @@
     border-right: 2px dotted white;
 }
 
-.pageNumberNavigation{
+.countryNavigation{
     border-right:none;
 }
 
@@ -25,12 +25,12 @@
     font-weight: 100;
 }
 
-.genreNavigation ul , .countryNavigation ul , .pageNumberNavigation ul{
+.genreNavigation ul , .countryNavigation ul{
     display: flex;
     list-style: none;
 }
 
-.genreNavigation button, .countryNavigation button, .pageNumberNavigation button{
+.genreNavigation button, .countryNavigation button{
     color: white;
     background-color: black;
     border-right: 1px solid white;

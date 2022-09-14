@@ -4,15 +4,15 @@
     padding-bottom: 5rem;
 }
 
+
+.fetchLoading{
+    width: 4rem;
+}
+
 .loading{
     width: 4rem;
     margin-left: 48vw;
     margin-bottom: 3rem;
-}
-
-.fetchLoading{
-    padding-left: 30vw;
-    width: 4rem;
 }
 
 .newsItemsGrid{
