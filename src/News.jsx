@@ -73,7 +73,7 @@ export default class News extends Component {
             dataLength={this.state.articles.length}
             next={this.fetchMoreData}
             hasMore={this.state.articles.length !== this.state.totalResults}
-            loader={<img className="fetchLoading" src={loading} alt="loading" />}
+            loader={<div className="loaderDiv"><img className="fetchLoading" src={loading} alt="loading" /></div>}
             endMessage={
               <p style={{ textAlign: "center" }}>
                 <b>Yay! You are all caught up</b>
