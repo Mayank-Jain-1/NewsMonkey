@@ -16,8 +16,9 @@ export default class News extends Component {
   }
 
   updateComponent = async () => {
-    
+    this.props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.newsCountry}&category=${this.props.newsGenre}&apiKey=bac9e51e6647437caed3a2d883501d36&page=${this.state.pageNumber}&pagesize=${this.props.pageSize}`;
+    this.props.setProgress(70);
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({
@@ -25,6 +26,8 @@ export default class News extends Component {
       loaded: true,
       totalResults: parsedData.totalResults,
     });
+    this.props.setProgress(100);
+    
 
   };
 
@@ -65,9 +68,6 @@ export default class News extends Component {
         <hr />
         <br />
         <br />
-        {!this.state.loaded && (
-          <img className="loading" src={loading} alt="loading" />
-        )}
         <div className="gridContainer">
           <InfiniteScroll
             dataLength={this.state.articles.length}
