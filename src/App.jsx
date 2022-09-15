@@ -8,6 +8,7 @@ import WhatsNew from './WhatsNew';
 import About from './About';
 import Home from './Home';
 import LoadingBar from 'react-top-loading-bar';
+import Footer from './Footer';
 
 
 export const App = () => {
@@ -27,6 +28,7 @@ export const App = () => {
             <Route path='/whatsnew' element={<WhatsNew/>}/>
           <Route path='/about' element={<About/>}/>
         </Routes> 
+        <Footer />
       </BrowserRouter>
     )
 }

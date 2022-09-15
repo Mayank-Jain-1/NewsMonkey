@@ -1,6 +1,9 @@
 .newsNavigation{
     display: flex;
     width: 100vw;
+    position: sticky;
+    z-index: 101;
+    top: 73px;   
 }
 
 .genreNavigation, .countryNavigation ,.pageNumberNavigation{
