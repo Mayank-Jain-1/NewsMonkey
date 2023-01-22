@@ -14,7 +14,7 @@ import Footer from './Footer';
 export const App = () => {
 
   const [progress, setProgress] = useState(0);
-  const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+  const apiKey = 'bac9e51e6647437caed3a2d883501d36';
    
     return (
       <BrowserRouter>
